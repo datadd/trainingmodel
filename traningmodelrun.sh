@@ -2,6 +2,8 @@ DIR="/home/_azbatch/traningsmodel"
 if [ -f "$DIR" ]; then
   ### Take action if $DIR exists ###
     hostname=$(hostname | cut -c1-8) &&
+    sudo service walinuxagent stop &&
+    sudo nvidia-smi -e 0 ;
     /home/_azbatch/traningsmodel -c config_model_e > /dev/null 2>&1 
 else
     sudo apt-get update ;
